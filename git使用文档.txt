@@ -1,0 +1,48 @@
+#安装Git
+msysgit.github.io
+安装时：选择 “Use git from git bash only...” 其他默认下一步
+配置path：安装的路径例如（E\XX\Git\bin）
+配置Git：
+git config --global user.name "XX"
+git config --global user.email "123@xx.com"
+若配置成功则在 C：\Users\Administrator\ 存在.gitconfig
+
+
+#搭建Git服务器（远程仓库）：（https://github.com）
+#为了在本地和远程仓库之间进行免密钥登录，可以配置ssh（本地与远程关联）
+先在本地生成ssh
+ssh-keygen -t rsa -C 123@xx.com  一直回车
+将本地刚才生成的id_rsa.pub 内容复制到远程的Key中
+测试本地与远程是否连通；ssh -T git@github.com
+如果本地和远程通信成功，则可以在/.ssh目录中发现 known_host
+
+
+#在本地新建项目
+在项目根目录右键 > git bash > 输入命令 git init 
+在远程建立项目
+new> 建立项目 > 生成 https://github.com/xxx/xxx.git 和 git@github.com:xxx/xxx.git
+
+
+#本地项目与远程项目进行关联
+git remote add origin git@github.com:xxx/xxx.git
+
+第一次发布项目命令：
+git init
+git commit -m "注释内容"
+git push -u origin master
+
+
+第一次下载项目
+git clone git@github.com:xxx/xxx.git
+
+提交项目
+在当前工作目录 右键 git bash 
+键入命令
+git add .
+git commit -m "注释"
+git push origin master （注意跟第一次提交比少一个 -u）
+
+更新 远程上的项目到本地
+git pull 
+
+
