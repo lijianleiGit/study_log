@@ -1,0 +1,16 @@
+centos7 防火墙设置
+
+1、查看有哪些端口号开启了防火墙
+	firewall-cmd --list-ports
+
+2、查看当前系统防火墙状态
+	firewall-cmd --state
+
+3、开启某个端口号的防火墙（注意：开启后需要重启防火墙才会生效）
+	firewall-cmd --zone=public --add-port=3306/tcp --permanent
+
+4、重启防火墙
+	systemctl restart firewalld.service
+
+5、设置开启自启
+		systemctl enable firewalld.service
